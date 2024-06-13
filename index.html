@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Girlfriend?</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    background-color: #ffcccc; /* Light coral */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  h1 {
+    color: #333;
+    margin-top: 20px;
+    font-size: 22px;
+  }
+  #question {
+    margin-top: 20px;
+    position: relative;
+  }
+  #response {
+    display: none;
+    margin-top: 20px;
+  }
+  button {
+    padding: 12px 24px;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+  }
+  #yesButton {
+    background-color: #0099ff; /* Deep sky blue */
+    color: white;
+  }
+  #noButton {
+    background-color: #ff6666; /* Light coral */
+    color: white;
+    position: absolute;
+  }
+  .heart {
+    color: #ff3b3f; /* Red */
+    font-size: 30px;
+    margin-top: 20px;
+  }
+  .shape {
+    position: absolute;
+    animation: moveShape 15s linear infinite;
+  }
+  @keyframes moveShape {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-50vh) rotate(180deg);
+    }
+    100% {
+      transform: translateY(0) rotate(360deg);
+    }
+  }
+  .popup {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    z-index: 9999;
+  }
+
+  /* Responsive Video */
+  #videoFrame {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+</head>
+<body>
+
+<div id="question">
+  <h1>Will you be my girlfriend?</h1>
+  <button id="yesButton" onclick="reply('yes')">Yes</button>
+  <button id="noButton" onclick="moveNo()">No</button>
+</div>
+
+<div id="response">
+  <h1>🥰🥰 OMG u finally said Yes 🥰🥰 (now marry me) </h1>
+  <iframe id="videoFrame" height="815" width="310" src="./assets/videos/document_6294256327266930208.mp4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <div class="popup">Happy birthday kat youre beautiful and sup bbg *smirks*😏😏😏😏😏😏😏😏😏😏😏😏😏😏😏😏😏😏😏😏</div>
+</div>
+
+<span class="heart">&#10084;</span>
+<span class="heart">&#10084;</span>
+<span class="heart">&#10084;</span>
+<span class="heart">&#10084;</span>
+<span class="heart">&#10084;</span>
+
+<!-- Shapes -->
+<div class="shape" style="top: 10%; left: 5%; font-size: 48px;">🌈</div>
+<div class="shape" style="top: 25%; left: 30%; font-size: 48px;">🦋</div>
+<div class="shape" style="top: 40%; left: 60%; font-size: 48px;">🌻</div>
+<div class="shape" style="top: 60%; left: 15%; font-size: 48px;">🎈</div>
+<div class="shape" style="top: 75%; left: 80%; font-size: 48px;">🦄</div>
+
+<script>
+  function reply(answer) {
+    if (answer === 'yes') {
+      document.getElementById('question').style.display = 'none';
+      document.getElementById('response').style.display = 'block';
+    } else {
+      alert("You clicked 'No'! Only 'Yes' leads to the video.");
+    }
+  }
+  
+  function moveNo() {
+    var button = document.getElementById('noButton');
+    var newX = Math.random() * window.innerWidth;
+    var newY = Math.random() * window.innerHeight;
+    button.style.left = newX + 'px';
+    button.style.top = newY + 'px';
+  }
+
+  document.getElementById('videoFrame').onload = function() {
+    document.querySelector('.popup').style.display = 'block';
+  };
+</script>
+
+</body>
+</html>
